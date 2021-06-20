@@ -1,66 +1,149 @@
 <template>
-  <main class="position-relative">
-    <div class="border-bottom">
-      <div class="d-flex justify-content-between p-3">
-        <div class="d-flex">
-          <i class="fas fa-search mt-2 text-muted"></i>
+  <main class="">
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+      <div class="container-fluid ">
+        <form class="w-50 me-3 navbar-brand">
           <input
-            style="width: 240px; background: transparent"
-            type="text"
-            class="form-control border-0"
-            id="search"
-            placeholder="Search therapist"
+            type="search"
+            class="form-control"
+            placeholder="Search..."
+            aria-label="Search"
           />
-        </div>
-        <img
-          src="../assets/girl.jpeg"
-          width="36"
-          height="36"
-          class="float-end rounded-circle"
-        />
-      </div>
-    </div>
-    <div class="px-3">
-      <div class="d-flex justify-content-between border-bottom p-3">
-        <span class="mt-2">{{ currentPage }}</span>
+        </form>
+         <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div>
-          <button
-            type="button"
-            class="btn btn-outline-primary me-2"
-            data-bs-toggle="modal"
-            data-bs-target="#inviteTherapistModal"
-          >
-            Edit
-          </button>
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#inviteLinkModal" hidden>
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary me-2"
-            @click="getInviteLink"
-          >
-            Proceed
-          </button>
-        </div>
-      </div>
-    </div>
+         
+ 
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-bell fs-4"></i>
+                <span class="badge bg-danger rounded-circle p-1">3</span>
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <div class="d-flex">
+                      <img
+                        src="../assets/guy.jpeg"
+                        alt="mdo"
+                        width="40"
+                        height="40"
+                        class="rounded-circle me-2"
+                      />
+                      <div>
+                        <p class="m-0">Micheal liked you!</p>
+                        <span class="valid-feedback text-muted d-inline"
+                          >About 20 minutes ago</span
+                        >
+                      </div>
+                      <i
+                        class="fas fa-heart mt-3 fs-6 text-danger ms-3"
+                      ></i></div
+                  ></a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <div class="d-flex">
+                      <img
+                        src="../assets/girl.jpeg"
+                        alt="mdo"
+                        width="40"
+                        height="40"
+                        class="rounded-circle me-2"
+                      />
+                      <div>
+                        <p class="m-0">Mary liked you!</p>
+                        <span class="valid-feedback text-muted d-inline"
+                          >About 30 minutes ago</span
+                        >
+                      </div>
+                      <i
+                        class="fas fa-heart mt-3 fs-6 text-muted ms-3"
+                      ></i></div
+                  ></a>
+                </li>
 
-    <!-- <div class="d-flex justify-content-between">
-        <div>
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item">
-                <a href="#" class="text-decoration-none"><small>Therapist</small></a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                <small>Invite Therapist</small>
-              </li>
-            </ol>
-          </nav>
-          <p class="m-0">Invite Therapist</p>
+                <li><hr class="dropdown-divider" /></li>
+
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <div class="d-flex">
+                      <img
+                        src="../assets/man.jpeg"
+                        alt="mdo"
+                        width="40"
+                        height="40"
+                        class="rounded-circle me-2"
+                      />
+                      <div>
+                        <p class="m-0">Gary liked you!</p>
+                        <span class="valid-feedback text-muted d-inline"
+                          >About 5 minutes ago</span
+                        >
+                      </div>
+                      <i
+                        class="fas fa-heart mt-3 fs-6 text-danger ms-3"
+                      ></i></div
+                  ></a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://github.com/mdo.png"
+                  alt="mdo"
+                  width="40"
+                  height="40"
+                  class="rounded-circle"
+                />
+                <span class="ms-2">Jordan</span>
+              </a>
+              <ul
+                class="dropdown-menu text-small shadow"
+                aria-labelledby="dropdownUser2"
+              >
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-      </div> -->
+      </div>
+        </div>
+    </nav>
   </main>
 </template>

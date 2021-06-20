@@ -1,7 +1,7 @@
 <template>
 	<main class="d-flex">
 		<Sidebar />
-		<div class="flex-grow-1">
+		<div class="flex-grow-1 row">
 			<Header />
 			<router-view />
 		</div>
