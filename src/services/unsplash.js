@@ -12,11 +12,8 @@ export const getPhoto = async () => {
       params: {
         client_id: accessKey,
         per_page: 15,
-        // ...param
       },
     });
-    console.log("hi", res);
-
     if (res.status == 200) return res.data;
     else return null;
   } catch (exc) {
@@ -34,8 +31,6 @@ export const getRandomPhoto = async (param) => {
         ...param,
       },
     });
-    console.log("hello", res);
-
     if (res.status == 200) return res.data;
     else return null;
   } catch (exc) {

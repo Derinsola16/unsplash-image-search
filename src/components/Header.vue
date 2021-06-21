@@ -1,5 +1,5 @@
 <template>
-  <main class="">
+  <main>
     <nav class="navbar navbar-expand-lg navbar-light border-bottom">
       <div class="container-fluid">
         <form
@@ -10,8 +10,8 @@
           <input
             v-model="query"
             type="search"
-            class="form-control col-6 border-bottom border-0"
-            placeholder="Press enter to search..."
+            class="form-control border-bottom border-0 bg-white"
+            placeholder="Search..."
             aria-label="Search"
           />
         </form>
@@ -156,7 +156,6 @@ export default {
   data() {
     return {
       query: "",
-      unsplashdata: null,
     };
   },
   methods: {

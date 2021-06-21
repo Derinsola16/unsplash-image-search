@@ -4,12 +4,15 @@
       <div
         class="col-lg-4 mb-4 col-md-12 mb-lg-0"
         v-for="image in imageUrl.results || imageUrl"
-        :key="image"
+        :key="image.id"
       >
         <img
+          style="object-fit: cover"
+          width="500"
+          height="500"
           :src="image.urls.regular"
           class="w-100 shadow-1-strong rounded mb-4"
-          alt=""
+          alt="image"
         />
       </div>
     </div>
@@ -19,22 +22,20 @@
 <script>
 import { getPhoto, getRandomPhoto } from "../services/unsplash";
 export default {
-  name: "home",
-  data: () => ({
-    unsplashData: null,
-  }),
+  data() {
+    return {
+      unsplashData: null,
+    };
+  },
   computed: {
     imageUrl() {
-      if (this.unsplashData) {
-        return this.unsplashData;
-      }
+      if (this.unsplashData) return this.unsplashData;
       return null;
     },
   },
   methods: {
     Photo() {
       getPhoto().then((res) => {
-        console.log(res);
         this.unsplashData = res;
       });
     },
@@ -44,7 +45,6 @@ export default {
         query: this.$root.$refs.header.$data.query,
       };
       getRandomPhoto(param).then((res) => {
-        console.log(res);
         this.unsplashData = res;
       });
     },
