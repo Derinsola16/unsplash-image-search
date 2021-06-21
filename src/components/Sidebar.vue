@@ -1,9 +1,9 @@
 <template>
-  <main style="height: 100vh" class="position-sticky top-0"> 
+  <main style="height: 100vh" class="position-sticky top-0">
     <!--  -->
     <!-- col-auto col-md-3 col-xl-2 row flex-nowrap -->
     <div class="">
-      <div class=" px-sm-2 px-0 border border-2">
+      <div class="px-sm-2 px-0 border border-2">
         <div
           class="
             d-flex

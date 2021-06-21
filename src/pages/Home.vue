@@ -1,103 +1,59 @@
 <template>
-  <main class="py-5 px-4">
-    <div>
-      <div class="d-flex">
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      
-
-      <div class="d-flex">
-        <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      <div class="d-flex">
-        <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      <div class="card w-100 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
+  <main class="mt-4 container">
+    <div class="row">
+      <div
+        class="col-lg-4 mb-4 col-md-12 mb-lg-0"
+        v-for="image in imageUrl.results || imageUrl"
+        :key="image"
+      >
+        <img
+          :src="image.urls.regular"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt=""
+        />
       </div>
     </div>
-    
-       <div>
-      <div class="d-flex">
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-          <div class="card-body "></div>
-        </div>
-        <div class="card w-25 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      
-
-      <div class="d-flex">
-        <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      <div class="d-flex">
-        <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      <div class="card w-50 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-      </div>
-
-      <div class="card w-100 me-4 mb-4" style="height: 150px">
-        <div class="card-body "></div>
-      </div>
-    </div>
-    
   </main>
 </template>
 
 <script>
+import { getPhoto, getRandomPhoto } from "../services/unsplash";
 export default {
-  name: "Dashboard",
-  components: {},
-  data() {
-    return {};
+  name: "home",
+  data: () => ({
+    unsplashData: null,
+  }),
+  computed: {
+    imageUrl() {
+      if (this.unsplashData) {
+        return this.unsplashData;
+      }
+      return null;
+    },
   },
-  computed: {},
+  methods: {
+    Photo() {
+      getPhoto().then((res) => {
+        console.log(res);
+        this.unsplashData = res;
+      });
+    },
+    searchPhoto() {
+      const param = {
+        featured: true,
+        query: this.$root.$refs.header.$data.query,
+      };
+      getRandomPhoto(param).then((res) => {
+        console.log(res);
+        this.unsplashData = res;
+      });
+    },
+  },
+  mounted() {
+    this.Photo();
+    this.$root.$refs.home = this;
+  },
 };
 </script>
+
+<style></style>
